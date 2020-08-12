@@ -1,3 +1,6 @@
+// 使用 require.context 实现前端工程自动化
+// https://www.jianshu.com/p/c894ea00dfec
+
 // 批量导出文件
 const requireApi = require.context(
 	// api 目录的相对路径
@@ -9,10 +12,9 @@ const requireApi = require.context(
 )
 
 let module = {}
-requireApi.keys().forEach((key,index)=>{
-	if(key === './index.js') return
-	console.log(key);
-	Object.assign(module,requireApi(key))
+requireApi.keys().forEach((key, index) => {
+	if (key === './index.js') return
+	Object.assign(module, requireApi(key))
 })
 
 export default module

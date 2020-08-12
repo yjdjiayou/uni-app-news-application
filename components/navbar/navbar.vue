@@ -57,29 +57,8 @@
 				this.val = newVal
 			}
 		},
-		created() {
-			
-			// 获取手机系统信息
-			const info = uni.getSystemInfoSync();
-			console.log(info);
-			// 设置状态栏高度
-			this.statusBarHeight = info.statusBarHeight;
-			this.windowWidth = info.windowWidth;
-			
-			// h5 app mp-alipay
-			// #ifndef H5 || APP-PLUS || MP-ALIPAY
-			// 获取胶囊的位置
-			const menuButtonInfo = uni.getMenuButtonBoundingClientRect();
-			console.log(menuButtonInfo);
-			// (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏内的高度) = 导航栏的高度
-			this.navBarHeight = (menuButtonInfo.bottom - info.statusBarHeight) + (menuButtonInfo.top - info.statusBarHeight);
-			this.windowWidth = menuButtonInfo.left;
-			// #endif
-	
-		},
 		methods: {
 			back(){
-				// uni.navigateBack()
 				uni.switchTab({
 					url:routerTree.home
 				})
@@ -87,7 +66,7 @@
 			open() {
 				if (this.isSearch) return
 				uni.navigateTo({
-					url: "/pages/home-search/home-search"
+					url: routerTree.homeSearch
 				})
 			},
 			inputChange(e) {
@@ -97,6 +76,24 @@
 	
 				this.$emit('input', value)
 			}
+		},
+		created() {
+			
+			// 获取手机系统信息
+			const info = uni.getSystemInfoSync();
+			// 设置状态栏高度
+			this.statusBarHeight = info.statusBarHeight;
+			this.windowWidth = info.windowWidth;
+			
+			// h5 app mp-alipay
+			// #ifndef H5 || APP-PLUS || MP-ALIPAY
+			// 获取胶囊的位置
+			const menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+			// (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏内的高度) = 导航栏的高度
+			this.navBarHeight = (menuButtonInfo.bottom - info.statusBarHeight) + (menuButtonInfo.top - info.statusBarHeight);
+			this.windowWidth = menuButtonInfo.left;
+			// #endif
+			
 		}
 	}
 </script>

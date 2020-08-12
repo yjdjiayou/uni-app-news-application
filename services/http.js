@@ -14,10 +14,8 @@ export default function $http(options) {
 		}).then((res) => {
 
 			if (res.result.code === 200) {
-				// .then
 				reslove(res.result)
 			} else {
-				// catch
 				reject(res.result)
 			}
 
