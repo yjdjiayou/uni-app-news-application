@@ -41,12 +41,10 @@
 				}).then(res => {
 					uni.hideLoading()
 					uni.showToast({
-						title:this.like?'收藏成功':'取消收藏',
-						icon:'none'
+						title: this.like ? '收藏成功' : '取消收藏',
+						icon: 'none'
 					})
-					console.log(res);
-					
-				}).catch(()=>{
+				}).catch(() => {
 					uni.hideLoading()
 				})
 			}

@@ -1,10 +1,10 @@
 <template>
 	<view class="navbar">
 		<view class="navbar-fixed">
-			
+
 			<!-- 状态栏 -->
 			<view :style="{height:statusBarHeight+'px'}"></view>
-			
+
 			<!-- 导航栏内容 -->
 			<view class="navbar-content" :class="{search:isSearch}" :style="{height:navBarHeight+'px',width:windowWidth+'px'}"
 			 @click.stop="open">
@@ -23,7 +23,7 @@
 					<input class="navbar-search_text" type="text" v-model="val" placeholder="请输入您要搜索的内容" @input="inputChange" />
 				</view>
 			</view>
-			
+
 		</view>
 		<!-- 填充物——用来填充底部的空白 -->
 		<view :style="{height: statusBarHeight+navBarHeight+'px'}"></view>
@@ -31,8 +31,10 @@
 </template>
 
 <script>
-	import {routerTree} from '@/common/js/router-tree.js';
-	
+	import {
+		routerTree
+	} from '@/common/js/router-tree.js';
+
 	export default {
 		props: {
 			value: {
@@ -52,15 +54,16 @@
 				val: ''
 			};
 		},
-		watch:{
-			value(newVal){
+
+		watch: {
+			value(newVal) {
 				this.val = newVal
 			}
 		},
 		methods: {
-			back(){
+			back() {
 				uni.switchTab({
-					url:routerTree.home
+					url: routerTree.home
 				})
 			},
 			open() {
@@ -73,18 +76,18 @@
 				const {
 					value
 				} = e.detail
-	
+
 				this.$emit('input', value)
 			}
 		},
 		created() {
-			
+
 			// 获取手机系统信息
 			const info = uni.getSystemInfoSync();
 			// 设置状态栏高度
 			this.statusBarHeight = info.statusBarHeight;
 			this.windowWidth = info.windowWidth;
-			
+
 			// h5 app mp-alipay
 			// #ifndef H5 || APP-PLUS || MP-ALIPAY
 			// 获取胶囊的位置
@@ -93,7 +96,7 @@
 			this.navBarHeight = (menuButtonInfo.bottom - info.statusBarHeight) + (menuButtonInfo.top - info.statusBarHeight);
 			this.windowWidth = menuButtonInfo.left;
 			// #endif
-			
+
 		}
 	}
 </script>

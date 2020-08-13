@@ -13,6 +13,11 @@
 		}, {
 			"path": "pages/tabbar/mine/mine",
 			"style": {}
+		}, {
+			"path": "pages/home-search/home-search",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
