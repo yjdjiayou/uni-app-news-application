@@ -15,8 +15,8 @@
 
 			};
 		},
-		methods:{
-			loadmore(){
+		methods: {
+			loadmore() {
 				this.$emit('loadmore')
 			}
 		}
@@ -25,9 +25,10 @@
 
 <style lang="scss">
 	.scroll {
-		flex: 1;
+		height: 100%;
 		overflow: hidden;
 		box-sizing: border-box;
+
 		.list-scroll {
 			height: 100%;
 			display: flex;

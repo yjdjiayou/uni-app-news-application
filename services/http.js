@@ -4,7 +4,8 @@ export default function $http(options) {
 		data
 	} = options
 	const dataObj = {
-		user_id: '5e76254858d922004d6c9cdc',
+		// 因为没有实现登录功能，所以这里直接使用云数据库中的数据模拟实现
+		user_id: '5f320096f4cba60001aa8b7e',
 		...data
 	}
 	return new Promise((reslove, reject) => {
