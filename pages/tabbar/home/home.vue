@@ -41,7 +41,11 @@
 			},
 			getLabel() {
 				// 调用云函数方法
-				this.$api.get_label().then((res) => {
+				this.$api.get_label(
+				// {
+				// 	type: 'all'
+				// }
+				).then((res) => {
 					const {
 						data
 					} = res
@@ -54,12 +58,13 @@
 			}
 		},
 		onLoad() {
-			// uni.$on('labelChange', (res) => {
-			// 	this.tabList = []
-			// 	this.tabIndex = 0
-			// 	this.activeIndex = 0
-			// 	this.getLabel()
-			// })
+			// 监听全局的事件，发布订阅模式
+			uni.$on('labelChange', (res) => {
+				this.tabList = []
+				this.tabIndex = 0
+				this.activeIndex = 0
+				this.getLabel()
+			})
 			this.getLabel()
 		},
 	}
