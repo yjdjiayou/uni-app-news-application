@@ -42,10 +42,12 @@
 			}
 		},
 		created() {
-			uni.$on('update_article', () => {
-				this.listCacheData = {}
-				this.load = {}
-				this.getList(this.activeIndex)
+			uni.$on('update_article', (e) => {
+				if(e === 'follow'){
+					this.listCacheData = {}
+					this.load = {}
+					this.getList(this.activeIndex)
+				}
 			})
 		},
 		methods: {

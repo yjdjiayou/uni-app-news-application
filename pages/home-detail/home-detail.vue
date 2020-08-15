@@ -137,7 +137,6 @@
 				}).then((res) => {
 					const {data} = res
 					this.formData = data
-					console.log(res);
 				})
 			},
 			// 请求评论内容
@@ -145,7 +144,6 @@
 				this.$api.get_comments({
 					article_id: this.formData._id
 				}).then(res=>{
-					console.log(res);
 					const {data} = res
 					this.commentsList = data
 				})
@@ -158,6 +156,7 @@
 				}).then(res=>{
 					uni.hideLoading()
 					this.formData.is_author_like = !this.formData.is_author_like
+					uni.$emit('update_author')
 					uni.showToast({
 						title:this.formData.is_author_like?'关注作者成功':'取消关注作者',
 						icon:'none'
@@ -172,12 +171,11 @@
 				}).then(res=>{
 					uni.hideLoading()
 					this.formData.is_like = !this.formData.is_like
-					uni.$emit('update_article')
+					uni.$emit('update_article','follow')
 					uni.showToast({
 						title:this.formData.is_like ?'收藏成功':'取消收藏',
 						icon:'none'
 					})
-					console.log('收藏成功');
 				})
 			},
 			setUpdateThumbs(article_id){
