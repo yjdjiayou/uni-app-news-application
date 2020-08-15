@@ -1,3 +1,5 @@
+import store from '../store/index.js'
+
 export default function $http(options) {
 	const {
 		url,
@@ -5,7 +7,7 @@ export default function $http(options) {
 	} = options
 	const dataObj = {
 		// 因为没有实现登录功能，所以这里直接使用云数据库中的数据模拟实现
-		user_id: '5f320096f4cba60001aa8b7e',
+		user_id: store.state.userinfo._id,
 		...data
 	}
 	return new Promise((reslove, reject) => {
