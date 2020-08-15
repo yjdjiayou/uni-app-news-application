@@ -37,7 +37,7 @@
 					<text>我的文章</text>
 				</view>
 			</view>
-			<view class="my-content__list">
+			<view class="my-content__list" @click="onFeedbackClick">
 				<view class="my-content__list-title">
 					<uni-icons class="icons" type="help" size="14" color="#666"></uni-icons>
 					<text>意见反馈</text>
@@ -54,7 +54,7 @@
 	import {
 		routerTree
 	} from '../../../common/js/router-tree.js'
-	
+
 	export default {
 		data() {
 			return {
@@ -67,7 +67,12 @@
 		methods: {
 			onMyArticleClick() {
 				uni.navigateTo({
-					url:routerTree.myArticle
+					url: routerTree.myArticle
+				})
+			},
+			onFeedbackClick() {
+				uni.navigateTo({
+					url: routerTree.feedback
 				})
 			},
 		},

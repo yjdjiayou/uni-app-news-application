@@ -42,6 +42,11 @@
 			"style": {
 				"navigationBarTitleText": "我的文章"
 			}
+		}, {
+			"path": "pages/feedback/feedback",
+			"style": {
+				"navigationBarTitleText": "意见反馈"
+			}
 		}
 	],
 	"globalStyle": {
