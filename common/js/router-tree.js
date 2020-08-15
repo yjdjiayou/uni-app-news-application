@@ -10,4 +10,5 @@ export const routerTree = {
 	homeSearch:'/pages/home-search/home-search',// 搜索页
 	homeDetail:'/pages/home-detail/home-detail',// 详情页
 	detailComments:'/pages/detail-comments/detail-comments',// 详情页-评论
+	myArticle:'/pages/my-article/my-article',// 我的文章页
 };

@@ -31,7 +31,7 @@
 
 
 		<view class="my-content">
-			<view class="my-content__list">
+			<view class="my-content__list" @click="onMyArticleClick">
 				<view class="my-content__list-title">
 					<uni-icons class="icons" type="contact" size="14" color="#666"></uni-icons>
 					<text>我的文章</text>
@@ -51,6 +51,10 @@
 	import {
 		mapState
 	} from 'vuex'
+	import {
+		routerTree
+	} from '../../../common/js/router-tree.js'
+	
 	export default {
 		data() {
 			return {
@@ -61,10 +65,13 @@
 			...mapState(['userinfo'])
 		},
 		methods: {
-
+			onMyArticleClick() {
+				uni.navigateTo({
+					url:routerTree.myArticle
+				})
+			},
 		},
-		onLoad() {
-		}
+		onLoad() {}
 	}
 </script>
 

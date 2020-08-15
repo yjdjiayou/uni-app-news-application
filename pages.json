@@ -9,10 +9,14 @@
 			}
 		}, {
 			"path": "pages/tabbar/follow/follow",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "关注"
+			}
 		}, {
 			"path": "pages/tabbar/mine/mine",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
 		}, {
 			"path": "pages/home-search/home-search",
 			"style": {
@@ -25,10 +29,19 @@
 			}
 		}, {
 			"path": "pages/home-detail/home-detail",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
 		}, {
 			"path": "pages/detail-comments/detail-comments",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "评论列表"
+			}
+		}, {
+			"path": "pages/my-article/my-article",
+			"style": {
+				"navigationBarTitleText": "我的文章"
+			}
 		}
 	],
 	"globalStyle": {
@@ -58,14 +71,12 @@
 			"text": "我的"
 		}]
 	},
-	"condition" : { //模式配置，仅开发期间生效
+	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式(list 的索引项)
-		"list": [
-			{
-				"name": "", //模式名称
-				"path": "", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}
-		]
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
 	}
 }
