@@ -11,6 +11,9 @@
 </template>
 
 <script>
+	import {
+		mapState
+	} from 'vuex';
 	import NavBar from '@/components/navbar/navbar.vue';
 	import Tab from '../../../components/tab/tab.vue';
 	import List from '../../../components/list/list.vue';
@@ -28,6 +31,14 @@
 				activeIndex: 0
 			}
 		},
+		computed: {
+			...mapState(['userinfo'])
+		},
+		watch: {
+			userinfo(newVal){
+				this.getLabel()
+			}
+		},
 		methods: {
 			change(current) {
 				this.tabIndex = current
@@ -42,9 +53,9 @@
 			getLabel() {
 				// 调用云函数方法
 				this.$api.get_label(
-				// {
-				// 	type: 'all'
-				// }
+					// {
+					// 	type: 'all'
+					// }
 				).then((res) => {
 					const {
 						data
@@ -65,7 +76,6 @@
 				this.activeIndex = 0
 				this.getLabel()
 			})
-			this.getLabel()
 		},
 	}
 </script>

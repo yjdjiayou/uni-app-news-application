@@ -59,7 +59,10 @@
     "mp-weixin" : {
         "appid" : "wx551f713861f32ba7",
         "setting" : {
-            "urlCheck" : false
+            "urlCheck" : true,
+            "es6" : true,
+            "postcss" : true,
+            "minified" : true
         },
         "usingComponents" : true
     },
@@ -74,5 +77,21 @@
     },
     "uniStatistics" : {
         "enable" : false
+    },
+    "h5" : {
+        "title" : "新闻",
+        "router" : {
+            "mode" : "hash"
+        },
+        "devServer" : {
+            "https" : true,
+            "port" : ""
+        },
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
+            }
+        },
+        "domain" : "www.yaojiadong.cn"
     }
 }
